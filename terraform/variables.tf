@@ -19,3 +19,27 @@ variable "ssl_policy" {
 variable "certificate_arn" {
   type = string
 }
+
+variable "cpu_architecture" {
+  type = string
+}
+
+variable "operating_system_family" {
+  type = string
+}
+
+variable "container_name" {
+  type = string
+}
+
+variable "image_arn" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}
+
+variable "deployment_config_name" {
+  type = string
+}

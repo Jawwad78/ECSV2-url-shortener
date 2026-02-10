@@ -1,0 +1,47 @@
+#learn about ssl and hosting zones and how you will configure it- done
+u then need ecs tasks and task defintion etc
+also vpc endoint
+
+
+still need to do 
+
+u then need ecs tasks and task defintion etc
+also vpc endoint
+
+waf
+blue/green 
+
+iam 
+iam role for ecs to pull from ecr and push to cloudwatch
+task role to store data in dynamodb for the results of the url's
+
+oidc (this will come later when u do ci/cd)
+
+gateway endpoints: s3 and dynaamodb 
+interface endpoints we have:all other services like ecr cloudwtach 
+
+for ecr u need ecr api to actually talk to ecr so u establish connection and then u also need ecr docker to actually pull the image from ecr 
+
+with s3 bucket and dynamodb table
+ill need iam for s3 as it needs permison to store and retive data and also iam for dynamodb but vpc endpoint is not needed as its not INSIDE the vpc 
+
+then task needs to store in dyanodb so we need a task role for that
+and for the task to talk to an aws service it cant do via gat so we need vpc endpoint and like we said before it will be a gateway endpoint
+
+then ofcourse for ecs to push logs to cloudwtach again thats a service to srvice so we need vpc endpont for that aswell
+
+
+03/02/26
+
+set up the ecs service configuration wth the alb and figure out how its gonna work 
+
+
+rn i onlu have 1 target group in my ecs service so lets see how this will work 
+
+
+
+do this tomz 
+chnage iam role of dynamodb to read and put only 
+
+also if i upgrade my cpu and memory is task definiton i can do it so do that
+

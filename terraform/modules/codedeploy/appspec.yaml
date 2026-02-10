@@ -1,0 +1,9 @@
+# version: 0.0
+# Resources:
+#   - TargetService:
+#     Type: AWS:ECS::Service
+#     Properties:
+#       TaskDefinition: "arn:aws:ecs:eu-west-2:726661503364:task-definition/ecsv2:7"
+#       LoadBalancerInfo:
+#         ContainerName: "ecsv2container"
+#         ContainerPort: 8080

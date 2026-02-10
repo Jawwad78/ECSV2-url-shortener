@@ -16,35 +16,36 @@ resource "aws_lb" "alb" {
 #target group 
 resource "aws_lb_target_group" "blue" {
   name        = "alb-target-group-blue"
-  port        = 80
+  port        = 8080
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = var.vpc_id
 
   health_check {
-    healthy_threshold   = 5
-    unhealthy_threshold = 2
-    protocol            = "http"
-    path                = "/"
-    timeout             = 5
+    healthy_threshold   = 3
+    unhealthy_threshold = 3
+    protocol            = "HTTP"
+    path                = "/healthz"
+    timeout             = 10
     interval            = 30
+    matcher = 200
   }
 }
 
 #target group 
 resource "aws_lb_target_group" "green" {
   name        = "alb-target-group-green"
-  port        = 80
+  port        = 8080
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = var.vpc_id
 
   health_check {
-    healthy_threshold   = 5
-    unhealthy_threshold = 2
-    protocol            = "http"
+    healthy_threshold   = 3
+    unhealthy_threshold = 3
+    protocol            = "HTTP"
     path                = "/"
-    timeout             = 5
+    timeout             = 10
     interval            = 30
   }
 }
