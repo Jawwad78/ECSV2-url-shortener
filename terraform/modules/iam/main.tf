@@ -29,7 +29,7 @@ resource "aws_iam_role_policy_attachment" "cloudwatch" {
 }
 
 
-
+#iam role for ecs task to talk to dynamodb 
 resource "aws_iam_role" "ecstaskrole" {
   name = "ecstaskrole"
 
@@ -49,11 +49,30 @@ resource "aws_iam_role" "ecstaskrole" {
 }
 
 
-resource "aws_iam_role_policy_attachment" "taskrole_policy" {
-  role       = aws_iam_role.ecstaskrole.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+ #create an IAM policy - which is ONLY dynamo db read and put to MY table for ecs task role 
+data "aws_iam_policy_document" "example" {
+  statement {
+    actions   = ["dynamodb:PutItem",
+		"dynamodb:GetItem"]
+    resources = [var.dynamodb_arn]
+    effect = "Allow"
+  }
 }
 
+
+resource "aws_iam_policy" "policy" {
+  name        = "ecsv2taskrolepolicy"
+  description = "ecsv2 dynamodb read and put access to my table only"
+  policy = data.aws_iam_policy_document.example.json
+}
+
+resource "aws_iam_role_policy_attachment" "taskrole_policy" {
+  role       = aws_iam_role.ecstaskrole.name
+  policy_arn = aws_iam_policy.policy.arn
+}
+
+
+#iam role for codedeploy
 resource "aws_iam_role" "codedeploy" {
   name = "codedeployrole"
 

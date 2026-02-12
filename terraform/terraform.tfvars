@@ -15,3 +15,5 @@ deployment_config_name = "CodeDeployDefault.ECSAllAtOnce"
 
 memory = "3 GB"
 cpu = "1 vCPU"
+
+dynamodb_arn = "arn:aws:dynamodb:eu-west-2:726661503364:table/dynamoecsv2task"

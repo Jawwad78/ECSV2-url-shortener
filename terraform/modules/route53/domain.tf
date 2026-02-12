@@ -34,23 +34,6 @@ resource "aws_route53_record" "example" {
   zone_id         = aws_route53_zone.primary.zone_id
 }
 
-#i would keep this in , but aws can take upto 2 hours of validation, so it's your choice if you want to or not, I'll just do it manually from console
-
-# resource "aws_acm_certificate_validation" "example" {
-#   certificate_arn         = aws_acm_certificate.cert.arn
-#   validation_record_fqdns = [for record in aws_route53_record.example : record.fqdn]
-# }
-
-
-
-
- # domain name
-# data "aws_route53_zone" "example" {
-#   name         = "jawwad.org"
-#   private_zone = false
-# }
- 
-
  resource "aws_route53_record" "alb_alias" {
   zone_id = aws_route53_zone.primary.id
   name    = "www"
@@ -61,4 +44,18 @@ resource "aws_route53_record" "example" {
     evaluate_target_health = true
   }
 }
+
+
+#i would keep this in , but aws can take upto 2 hours of validation, so it's your choice if you want to or not, I'll just do it manually from console
+
+# resource "aws_acm_certificate_validation" "example" {
+#   certificate_arn         = aws_acm_certificate.cert.arn
+#   validation_record_fqdns = [for record in aws_route53_record.example : record.fqdn]
+# }
+
+
+
+
+
+
 

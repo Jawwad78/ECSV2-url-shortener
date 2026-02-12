@@ -51,3 +51,7 @@ variable "cpu" {
 variable "memory" {
   type = string
 }
+
+variable "dynamodb_arn" {
+  type = string
+}

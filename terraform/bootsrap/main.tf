@@ -10,6 +10,6 @@ module "dynamodb" {
   source = "./modules/dynamodb"
 }
 
-module "route53" {
-  source = "./modules/route53"
-}
+# module "route53" {
+#   source = "./modules/route53"
+# }

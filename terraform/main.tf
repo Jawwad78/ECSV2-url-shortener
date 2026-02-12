@@ -36,6 +36,7 @@ module "ecs" {
 
 module "iam" {
   source = "./modules/iam"
+  dynamodb_arn = var.dynamodb_arn
 }
 
 module "codedeploy" {
