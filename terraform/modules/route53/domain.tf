@@ -36,7 +36,7 @@ resource "aws_route53_record" "example" {
 
  resource "aws_route53_record" "alb_alias" {
   zone_id = aws_route53_zone.primary.id
-  name    = "www"
+  name    = ""
   type    = "A"
   alias {
     name                   = var.aws_lb_dnsname

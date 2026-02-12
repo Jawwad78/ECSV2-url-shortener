@@ -16,9 +16,6 @@ variable "ssl_policy" {
   type = string
 }
 
-variable "certificate_arn" {
-  type = string
-}
 
 variable "cpu_architecture" {
   type = string

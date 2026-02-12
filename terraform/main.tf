@@ -13,7 +13,6 @@ module "alb" {
   aws_subnet_public = module.vpc.aws_subnet_public
   vpc_id            = module.vpc.vpc_id
   alb_sg            = module.vpc.alb_sg
-  certificate_arn   = var.certificate_arn
   aws_acm_certificate_arn = module.route53.aws_acm_certificate_arn
 }
 

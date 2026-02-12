@@ -22,10 +22,6 @@ variable "alb_sg" {
   type = string
 }
 
-variable "certificate_arn" {
-  type = string
-}
-
 variable "aws_acm_certificate_arn" {
   type = string
 }
