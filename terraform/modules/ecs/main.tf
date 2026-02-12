@@ -3,8 +3,8 @@ resource "aws_ecs_task_definition" "ecsv2" {
   family                   = "ecsv2"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  cpu                      = 2048
-  memory                   = 4096
+  cpu                      = var.cpu
+  memory                   = var.memory
   execution_role_arn       = var.ecstaskexecutionrole
   task_role_arn            = var.ecstaskrole
   container_definitions = jsonencode([
@@ -15,6 +15,8 @@ resource "aws_ecs_task_definition" "ecsv2" {
       "environment" : [
         { "name" : "TABLE_NAME", "value" : "ecsv2table" }
       ],
+
+      
       portMappings = [
         {
           containerPort = 8080
@@ -40,6 +42,7 @@ resource "aws_ecs_task_definition" "ecsv2" {
 
 resource "aws_ecs_cluster" "ecsv2_cluster" {
   name = "ecsv2cluster"
+ 
 
   setting {
     name  = "containerInsights"
@@ -59,10 +62,13 @@ resource "aws_ecs_service" "ecsv2_Service" {
     type = "CODE_DEPLOY"
   }
 
+  
+
   network_configuration {
     security_groups = var.ecs_sg[*]
     subnets         = var.aws_subnet_private[*]
   }
+
 
   load_balancer {
     target_group_arn = var.blue_lb_arn

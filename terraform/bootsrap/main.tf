@@ -9,3 +9,7 @@ module "s3" {
 module "dynamodb" {
   source = "./modules/dynamodb"
 }
+
+module "route53" {
+  source = "./modules/route53"
+}

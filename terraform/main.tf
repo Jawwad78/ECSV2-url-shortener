@@ -14,6 +14,7 @@ module "alb" {
   vpc_id            = module.vpc.vpc_id
   alb_sg            = module.vpc.alb_sg
   certificate_arn   = var.certificate_arn
+  aws_acm_certificate_arn = module.route53.aws_acm_certificate_arn
 }
 
 module "ecs" {
@@ -29,6 +30,8 @@ module "ecs" {
   image_arn               = var.image_arn
   container_name          = var.container_name
   region                  = var.region
+  cpu = var.cpu
+  memory = var.memory
 }
 
 module "iam" {
@@ -45,4 +48,12 @@ module "codedeploy" {
   aws_lb_listener        = module.alb.aws_lb_listener
   blue_lb_name           = module.alb.blue_lb_name
   green_lb_name          = module.alb.green_lb_name
+}
+
+module "route53" {
+  source = "./modules/route53"
+
+  aws_lb_dnsname = module.alb.aws_lb_dnsname
+  aws_lb_zone_id = module.alb.aws_lb_zone_id
+
 }

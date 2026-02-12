@@ -16,3 +16,11 @@ output "green_lb_arn" {
 output "aws_lb_listener" {
   value = aws_lb_listener.https_listener.arn
 }
+ #I will mention this in my alias that I will set 
+output "aws_lb_dnsname" {
+  value = aws_lb.alb.dns_name
+}
+
+output "aws_lb_zone_id" {
+  value = aws_lb.alb.zone_id
+}

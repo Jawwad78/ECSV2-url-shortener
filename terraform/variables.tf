@@ -43,3 +43,11 @@ variable "region" {
 variable "deployment_config_name" {
   type = string
 }
+
+variable "cpu" {
+  type = string
+}
+
+variable "memory" {
+  type = string
+}

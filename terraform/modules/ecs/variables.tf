@@ -41,3 +41,11 @@ variable "image_arn" {
 variable "region" {
   type = string
 }
+
+variable "cpu" {
+  type = string
+}
+
+variable "memory" {
+  type = string
+}

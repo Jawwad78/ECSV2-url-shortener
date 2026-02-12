@@ -12,3 +12,6 @@ container_name = "ecsv2container"
 image_arn      = "726661503364.dkr.ecr.eu-west-2.amazonaws.com/ecsv2:latest"
 
 deployment_config_name = "CodeDeployDefault.ECSAllAtOnce"
+
+memory = "3 GB"
+cpu = "1 vCPU"

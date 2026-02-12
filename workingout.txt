@@ -43,5 +43,10 @@ rn i onlu have 1 target group in my ecs service so lets see how this will work
 do this tomz 
 chnage iam role of dynamodb to read and put only 
 
-also if i upgrade my cpu and memory is task definiton i can do it so do that
+also if i upgrade my cpu and memory is task definiton i can do it so do that and also add an alarm section in the ecs service (see terra docs)
+
+change cpu and memory of task definiton to normal
+
+the certificate needs to be validated- so see what u can do there -maybe make it in the bootstrap
+maybe also look into :  depends_on          = [var.ecstaskrole, var.ecstaskexecutionrole, ecsv2_cluster.name]
 

@@ -1,5 +1,5 @@
 # i used a security group rule as the sgs must refernece each other BUT also must be created before hand so 
-# using this fixes that problem 
+# using referenced security group fixes that problem 
 
 #creating SG's
 resource "aws_security_group" "alb" {

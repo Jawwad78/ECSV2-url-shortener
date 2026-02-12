@@ -7,7 +7,7 @@ resource "aws_lb" "alb" {
 
   enable_deletion_protection = false
 
-
+ depends_on = [ var.aws_acm_certificate_arn ]
 
   tags = {
     name = "alb-ecsv2"
@@ -49,13 +49,20 @@ resource "aws_lb_target_group" "green" {
     interval            = 30
   }
 }
+ 
+# I will get the arn of this certficate which I've created in the bootstrap folder 
+# and then reference it here 
+# data "aws_acm_certificate" "issued" {
+#   domain   = "jawwad.org"
+#   statuses = ["ISSUED"]
+# }
 
 resource "aws_lb_listener" "https_listener" {
   load_balancer_arn = aws_lb.alb.arn
   port              = var.sg_443
   protocol          = "HTTPS"
   ssl_policy        = var.ssl_policy
-  certificate_arn   = var.certificate_arn
+  certificate_arn   = var.aws_acm_certificate_arn
 
   default_action {
     type             = "forward"
