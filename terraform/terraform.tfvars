@@ -9,7 +9,7 @@ cpu_architecture        = "X86_64"
 operating_system_family = "LINUX"
 
 container_name = "ecsv2container"
-image_arn      = "726661503364.dkr.ecr.eu-west-2.amazonaws.com/ecsv2:latest"
+image_arn      = "726661503364.dkr.ecr.eu-west-2.amazonaws.com/bluegreen:latest"
 
 deployment_config_name = "CodeDeployDefault.ECSAllAtOnce"
 

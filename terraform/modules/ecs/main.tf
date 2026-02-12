@@ -12,9 +12,11 @@ resource "aws_ecs_task_definition" "ecsv2" {
       name      = var.container_name
       image     = var.image_arn
       essential = true
-      "environment" : [
-        { "name" : "TABLE_NAME", "value" : "ecsv2table" }
-      ],
+      "secrets" :[{
+         "name": "TABLE_NAME",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-2:726661503364:secret:dynamodb_table_name-ufCx47"  
+      }]
+    
 
       
       portMappings = [
@@ -34,6 +36,7 @@ resource "aws_ecs_task_definition" "ecsv2" {
       }
     },
   ])
+
   runtime_platform {
     operating_system_family = var.operating_system_family
     cpu_architecture        = var.cpu_architecture

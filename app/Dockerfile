@@ -19,3 +19,4 @@ COPY --from=build /app/src .
 #non root user for for a distroless image, you can't create your own as distroless doesn't have a shell
 USER 65532:65532
 EXPOSE 8080
+CMD ["-m", "uvicorn", "main:app", "--host=0.0.0.0", "--port=8080"]

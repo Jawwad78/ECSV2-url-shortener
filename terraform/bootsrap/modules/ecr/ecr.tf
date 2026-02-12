@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "ecr_repo" {
-  name                 = "ecsv2"
+  name                 = "bluegreen"
   image_tag_mutability = "MUTABLE"
 }
 

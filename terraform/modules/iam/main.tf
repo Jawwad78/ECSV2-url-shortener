@@ -28,6 +28,12 @@ resource "aws_iam_role_policy_attachment" "cloudwatch" {
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchFullAccess"
 }
 
+resource "aws_iam_role_policy_attachment" "task_executue_2" {
+  role       = aws_iam_role.ecstaskexecutionrole.name
+  policy_arn = "arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess"
+}
+
+
 
 #iam role for ecs task to talk to dynamodb 
 resource "aws_iam_role" "ecstaskrole" {
@@ -71,6 +77,11 @@ resource "aws_iam_role_policy_attachment" "taskrole_policy" {
   policy_arn = aws_iam_policy.policy.arn
 }
 
+
+# resource "aws_iam_role_policy_attachment" "taskrole_policy_2" {
+#   role       = aws_iam_role.ecstaskrole.name
+#   policy_arn = "arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess"
+# }
 
 #iam role for codedeploy
 resource "aws_iam_role" "codedeploy" {
