@@ -50,3 +50,9 @@ change cpu and memory of task definiton to normal
 the certificate needs to be validated- so see what u can do there -maybe make it in the bootstrap
 maybe also look into :  depends_on          = [var.ecstaskrole, var.ecstaskexecutionrole, ecsv2_cluster.name]
 
+add the env in secrets manager =done
+
+
+ok 
+change UI of the app
+and codedeploy manually first

@@ -11,12 +11,12 @@ resource "aws_dynamodb_table" "tfstatelock" {
 }
 
 resource "aws_dynamodb_table" "dynamoecsv2" {
-  name         = "dynamoecsv2task"
-  hash_key     = "LockID"
+  name         = "ecsv2table"
+  hash_key     = "id"
   billing_mode = "PAY_PER_REQUEST"
 
   attribute {
-    name = "LockID"
+    name = "id"
     type = "S"
   }
 
