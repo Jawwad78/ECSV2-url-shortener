@@ -55,5 +55,6 @@ module "route53" {
 
   aws_lb_dnsname = module.alb.aws_lb_dnsname
   aws_lb_zone_id = module.alb.aws_lb_zone_id
-
+  aws_route53_zone_name = var.aws_route53_zone_name
+  domain_name = var.domain_name
 }

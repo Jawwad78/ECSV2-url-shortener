@@ -7,8 +7,6 @@ resource "aws_lb" "alb" {
 
   enable_deletion_protection = false
 
- depends_on = [ var.aws_acm_certificate_arn ]
-
   tags = {
     name = "alb-ecsv2"
   }
@@ -58,9 +56,12 @@ resource "aws_lb_listener" "https_listener" {
   ssl_policy        = var.ssl_policy
   certificate_arn   = var.aws_acm_certificate_arn
 
+  
+
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.blue.arn
+
   }
 }
 

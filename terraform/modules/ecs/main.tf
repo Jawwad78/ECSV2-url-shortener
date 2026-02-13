@@ -47,11 +47,14 @@ resource "aws_ecs_cluster" "ecsv2_cluster" {
   name = "ecsv2cluster"
  
 
+
   setting {
     name  = "containerInsights"
     value = "enhanced"
   }
 }
+
+
 resource "aws_ecs_service" "ecsv2_Service" {
   name                = "ecsv2service"
   cluster             = aws_ecs_cluster.ecsv2_cluster.id

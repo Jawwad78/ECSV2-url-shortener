@@ -52,3 +52,11 @@ variable "memory" {
 variable "dynamodb_arn" {
   type = string
 }
+
+variable "aws_route53_zone_name" {
+  type = string
+}
+
+variable "domain_name" {
+  type = string
+}
