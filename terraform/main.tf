@@ -61,4 +61,12 @@ module "route53" {
 
 module "waf" {
   source = "./modules/waf"
+  alb_arn = module.alb.alb_arn
+  aws_cloudwatch_log_group_name = var.aws_cloudwatch_log_group_name
+  retention_in_days = var.retention_in_days
+  aggregate_key_type = var.aggregate_key_type
+  scope = var.scope
+  limit = var.limit
+  evaluation_window_sec = var.evaluation_window_sec
+  metric_name = var.metric_name
 }
