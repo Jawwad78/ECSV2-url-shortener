@@ -21,6 +21,7 @@ def home():
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
       line-height:1.4;
       background:#2563eb;
+
       color:#ffffff;
     }
 

@@ -1,3 +1,4 @@
+#s3 bucket for my tf state in app layer 
 resource "aws_s3_bucket" "ecsv2bucket" {
   bucket = "ecsv2"
 

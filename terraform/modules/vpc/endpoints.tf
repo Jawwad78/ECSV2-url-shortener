@@ -114,3 +114,17 @@ resource "aws_vpc_endpoint" "secrets_manager" {
 
   private_dns_enabled = true
 }
+
+resource "aws_vpc_endpoint" "waf" {
+  vpc_id            = aws_vpc.main.id
+  service_name      = "com.amazonaws.eu-west-2.wafv2"
+
+  vpc_endpoint_type = "Interface"
+  subnet_ids        = aws_subnet.private[*].id
+
+  security_group_ids = [
+    aws_security_group.endpoint_sg.id
+  ]
+
+  private_dns_enabled = true
+}

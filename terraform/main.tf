@@ -58,3 +58,7 @@ module "route53" {
   aws_route53_zone_name = var.aws_route53_zone_name
   domain_name = var.domain_name
 }
+
+module "waf" {
+  source = "./modules/waf"
+}
