@@ -1,0 +1,33 @@
+name: build and push to ecr
+on:
+ workflow_dispatch:
+
+env:
+  AWS_REGION: eu-west-2
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+  AWS_ECR_REPO: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/threatcomposer/app
+  IMAGE_TAG: ${{ github.sha }} #build docker image with  same commit sha
+
+permissions:
+  id-token: write #  it asks github to make the oidc token
+  contents: read  #allows this pipeline to read files in this github repo
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checks out code
+        uses: actions/checkout@v4
+      - name: get aws creds
+        uses: aws-actions/configure-aws-credentials@v3
+        with :
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc_ecs_permissions   
+          aws-region: ${{ env.AWS_REGION }}  
+      - name: login to ecr
+        uses: aws-actions/amazon-ecr-login@v1  
+      - name: Build and push docker image 
+        run: |
+         docker build -f ./app/Dockerfile -t $AWS_ECR_REPO:$IMAGE_TAG ./app  
+         docker push $AWS_ECR_REPO:$IMAGE_TAG  
+
+
