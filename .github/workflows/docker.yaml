@@ -21,7 +21,7 @@ jobs:
       - name: get aws creds
         uses: aws-actions/configure-aws-credentials@v3
         with :
-          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role//ecsv2oidc   
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc   
           aws-region: ${{ env.AWS_REGION }}  
       - name: login to ecr
         uses: aws-actions/amazon-ecr-login@v1  
