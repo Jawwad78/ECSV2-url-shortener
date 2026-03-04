@@ -47,7 +47,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
          task-definition: task-definition.json
-         container-name: container_name
+         container-name: ecsv2container
          image: ${{ steps.build-and-push.outputs.image }}
 
 
