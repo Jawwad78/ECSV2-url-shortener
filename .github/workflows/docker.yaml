@@ -46,7 +46,7 @@ jobs:
         id: update-task-def-image
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-         task-definition: ecsv2.json
+         task-definition: task-definition.json
          container-name: ecsv2container
          image: ${{ steps.build-and-push.outputs.image }}
 
