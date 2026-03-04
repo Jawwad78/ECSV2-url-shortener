@@ -54,11 +54,7 @@ jobs:
         
      - name: Terraform Plan
        run: terraform plan
-    
- terrform-apply:
-    runs-on: ubuntu-latest
-    needs: terraform-init-plan
-    steps:   
+   
      - name: Terraform apply auto approve
        run: terraform apply -auto-approve
     
