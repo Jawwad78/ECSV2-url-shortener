@@ -6,13 +6,13 @@ module "vpc" {
 }
 
 module "alb" {
-  source            = "./modules/alb"
-  ssl_policy        = var.ssl_policy
-  sg_80             = var.sg_80
-  sg_443            = var.sg_443
-  aws_subnet_public = module.vpc.aws_subnet_public
-  vpc_id            = module.vpc.vpc_id
-  alb_sg            = module.vpc.alb_sg
+  source                  = "./modules/alb"
+  ssl_policy              = var.ssl_policy
+  sg_80                   = var.sg_80
+  sg_443                  = var.sg_443
+  aws_subnet_public       = module.vpc.aws_subnet_public
+  vpc_id                  = module.vpc.vpc_id
+  alb_sg                  = module.vpc.alb_sg
   aws_acm_certificate_arn = module.route53.aws_acm_certificate_arn
 }
 
@@ -29,12 +29,12 @@ module "ecs" {
   image_arn               = var.image_arn
   container_name          = var.container_name
   region                  = var.region
-  cpu = var.cpu
-  memory = var.memory
+  cpu                     = var.cpu
+  memory                  = var.memory
 }
 
 module "iam" {
-  source = "./modules/iam"
+  source       = "./modules/iam"
   dynamodb_arn = var.dynamodb_arn
 }
 
@@ -53,20 +53,20 @@ module "codedeploy" {
 module "route53" {
   source = "./modules/route53"
 
-  aws_lb_dnsname = module.alb.aws_lb_dnsname
-  aws_lb_zone_id = module.alb.aws_lb_zone_id
+  aws_lb_dnsname        = module.alb.aws_lb_dnsname
+  aws_lb_zone_id        = module.alb.aws_lb_zone_id
   aws_route53_zone_name = var.aws_route53_zone_name
-  domain_name = var.domain_name
+  domain_name           = var.domain_name
 }
 
 module "waf" {
-  source = "./modules/waf"
-  alb_arn = module.alb.alb_arn
+  source                        = "./modules/waf"
+  alb_arn                       = module.alb.alb_arn
   aws_cloudwatch_log_group_name = var.aws_cloudwatch_log_group_name
-  retention_in_days = var.retention_in_days
-  aggregate_key_type = var.aggregate_key_type
-  scope = var.scope
-  limit = var.limit
-  evaluation_window_sec = var.evaluation_window_sec
-  metric_name = var.metric_name
+  retention_in_days             = var.retention_in_days
+  aggregate_key_type            = var.aggregate_key_type
+  scope                         = var.scope
+  limit                         = var.limit
+  evaluation_window_sec         = var.evaluation_window_sec
+  metric_name                   = var.metric_name
 }
