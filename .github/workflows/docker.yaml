@@ -5,7 +5,7 @@ on:
 env:
   AWS_REGION: eu-west-2
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-  AWS_ECR_REPO: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/threatcomposer/app
+  AWS_ECR_REPO: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/ecsv2
   IMAGE_TAG: ${{ github.sha }} #build docker image with  same commit sha
 
 permissions:
