@@ -1,6 +1,6 @@
 name: Terraform plan and apply
 on:
-  workflow_dispatch:
+  pull_request:
   
 env:
   AWS_REGION: eu-west-2
