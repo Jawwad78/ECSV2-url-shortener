@@ -46,7 +46,7 @@ jobs:
         id: update-task-def-image
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-         task-definition: task-definition/ecsv2.json
+         task-definition: task-definition.json
          container-name: ecsv2container
          image: ${{ steps.build-and-push.outputs.image }}
 
@@ -72,7 +72,7 @@ jobs:
         env:
           ACTIONS_STEP_DEBUG: true #enable step debug logging
         with:
-          task-definition: ecsv2.json
+          task-definition: task-definition.json
           service: ecsv2service
           cluster: ecsv2cluster
           wait-for-service-stability: true
