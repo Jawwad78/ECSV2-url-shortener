@@ -58,13 +58,13 @@ jobs:
         env:
          container_port: 8080
          container_name:  ecsv2container 
-         task-definition-family: ecsv2:64
+         task_definition_family: ecsv2
          cluster: ecsv2cluster
          service: ecsv2service
          codedeploy-application: ecsv2codedeploy
          codedeploy-deployment-group: codedeploygroupname
         run: |
-         export TASK_DEF_ARN=$(aws ecs describe-task-definition --task-definition="$task-definition-family" | jq '.taskDefinition.taskDefinitionArn')
+         export TASK_DEF_ARN=$(aws ecs describe-task-definition --task-definition="$task_definition_family" | jq '.taskDefinition.taskDefinitionArn')
          cat ./.github/workflows/appspec.json | jq --arg key "$TASK_DEF_ARN" '.Resources[].TargetService.Properties.TaskDefinition=$key' \
          | jq --arg key "$container_port" '.Resources[].TargetService.Properties.LoadBalancerInfo.ContainerPort=$key' \
          | jq --arg key "$container_name" '.Resources[].TargetService.Properties.LoadBalancerInfo.ContainerName=$key' > .aws/appspec.json
