@@ -42,7 +42,7 @@ resource "aws_lb_target_group" "green" {
     healthy_threshold   = 3
     unhealthy_threshold = 3
     protocol            = "HTTP"
-    path                = "/"
+    path                = "/healthz"
     timeout             = 10
     interval            = 30
   }
