@@ -62,11 +62,14 @@ resource "aws_ecs_service" "ecsv2_Service" {
   scheduling_strategy = "REPLICA"
   desired_count       = 1
   launch_type         = "FARGATE"
-  depends_on          = [var.ecstaskrole, var.ecstaskexecutionrole]
+  depends_on          = [var.ecstaskrole, var.ecstaskexecutionrole, var.alb_arn]
+  
 
   deployment_controller {
     type = "CODE_DEPLOY"
   }
+
+
 
   
 

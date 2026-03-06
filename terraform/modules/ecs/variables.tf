@@ -49,3 +49,7 @@ variable "cpu" {
 variable "memory" {
   type = string
 }
+
+variable "alb_arn" {
+  type = string
+}

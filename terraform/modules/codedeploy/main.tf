@@ -1,7 +1,7 @@
 resource "aws_codedeploy_app" "ecsv2codedeploy" {
   compute_platform = "ECS"
   name             = "ecsv2codedeploy"
-  depends_on = [ var.ecsv2_cluster,var.ecsv2_Service ]
+
 }
 
 resource "aws_codedeploy_deployment_group" "example" {
@@ -9,8 +9,7 @@ resource "aws_codedeploy_deployment_group" "example" {
   deployment_config_name = var.deployment_config_name
   deployment_group_name  = "codedeploygroupname"
   service_role_arn       = var.codedeployrole
-  depends_on = [ aws_codedeploy_app.ecsv2codedeploy ]
-
+  
   auto_rollback_configuration {
     enabled = true
     events  = ["DEPLOYMENT_FAILURE"]
