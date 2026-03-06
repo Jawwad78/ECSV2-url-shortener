@@ -87,6 +87,7 @@ resource "aws_ecs_service" "ecsv2_Service" {
 
   # this is for signal interupt when doing ctrl c , to rollback users to old working app
   sigint_rollback       = true
-  wait_for_steady_state = true
+  wait_for_steady_state = false # I had this true before, but in aws console it had reached steady state but terrform was not picking it up 
+                              
 
 }
