@@ -20,7 +20,7 @@ def home():
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
       line-height:1.4;
-      background:#2563eb;
+      background:#16a34a;
 
       color:#ffffff;
     }
