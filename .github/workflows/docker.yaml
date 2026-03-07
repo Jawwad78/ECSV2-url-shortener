@@ -34,11 +34,12 @@ jobs:
         id: build-image 
         run: |
          docker build -f ./app/Dockerfile -t $AWS_ECR_REPO:$IMAGE_TAG ./app  
+         echo "image=$AWS_ECR_REPO:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
       - name: Run Trivy vulnerability scan
         uses: aquasecurity/trivy-action@0.30.0
         with:
-          image-ref: '$AWS_ECR_REPO:$IMAGE_TAG'  
+          image-ref: ${{ steps.build-image.outputs.image }}
           format: 'sarif'
           exit-code: 0
           severity: 'CRITICAL,HIGH'
