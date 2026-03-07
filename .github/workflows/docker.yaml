@@ -25,22 +25,28 @@ jobs:
         with :
           role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc   
           aws-region: ${{ env.AWS_REGION }}  
-
-      - name: Run Checkov action
-        id: checkov
-        uses: bridgecrewio/checkov-action@main
-        with:
-          directory: /app
-          framework: dockerfile 
         
         
       - name: login to ecr
         uses: aws-actions/amazon-ecr-login@v2  
       
-      - name: Build and push docker image 
-        id: build-and-push
+      - name: Build image
+        id: build-image 
         run: |
          docker build -f ./app/Dockerfile -t $AWS_ECR_REPO:$IMAGE_TAG ./app  
+
+      - name: Run Trivy vulnerability scan
+        uses: aquasecurity/trivy-action@0.30.0
+        with:
+          image-ref: $AWS_ECR_REPO:$IMAGE_TAG  
+          format: 'sarif'
+          exit-code: 0
+          severity: 'CRITICAL,HIGH'
+          output: 'trivy-results.sarif'
+
+      - name: push image
+        id: push-image    
+        run:
          docker push $AWS_ECR_REPO:$IMAGE_TAG  
          echo "image=$AWS_ECR_REPO:$IMAGE_TAG" >> $GITHUB_OUTPUT
       
@@ -61,7 +67,7 @@ jobs:
          task-definition-arn:  task-definition-arn
          task-definition-family: task-definition-family-name
          container-name: ecsv2container
-         image: ${{ steps.build-and-push.outputs.image }}
+         image: ${{ steps.push-image.outputs.image }}
 
 
       - name: Set appspec.json values
