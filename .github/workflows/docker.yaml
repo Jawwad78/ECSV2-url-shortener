@@ -27,8 +27,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}  
         
         
-      - name: login to ecr
-        uses: aws-actions/amazon-ecr-login@v2  
+      
       
       - name: Build image
         id: build-image 
@@ -46,12 +45,13 @@ jobs:
           ignore-unfixed: true #if there are no updated patches of the version, it will ignore it 
           version: 'v0.69.2'
         
-
+      - name: login to ecr
+        uses: aws-actions/amazon-ecr-login@v2  
       - name: push image
         id: push-image    
         run:
          docker push ${{ steps.build-image.outputs.image }}
-         echo "image=$AWS_ECR_REPO:$IMAGE_TAG" >> $GITHUB_OUTPUT
+        
       
     
 
