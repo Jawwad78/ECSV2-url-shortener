@@ -38,7 +38,7 @@ jobs:
       - name: Run Trivy vulnerability scan
         uses: aquasecurity/trivy-action@0.30.0
         with:
-          image-ref: $AWS_ECR_REPO:$IMAGE_TAG  
+          image-ref: '$AWS_ECR_REPO:$IMAGE_TAG'  
           format: 'sarif'
           exit-code: 0
           severity: 'CRITICAL,HIGH'
