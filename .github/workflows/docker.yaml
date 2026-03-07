@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Checkov action
         id: checkov
-        uses: bridgecrewio/checkov-action@maain
+        uses: bridgecrewio/checkov-action@main
         with:
           directory: /app
           framework: dockerfile 
