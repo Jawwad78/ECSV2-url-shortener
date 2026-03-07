@@ -43,6 +43,7 @@ jobs:
           format: 'table'
           exit-code: 0
           severity: 'CRITICAL,HIGH'
+          ignore-unfixed: true #if there are no updated patches of the version, it will ignore it 
           version: 'v0.69.2'
         
 
