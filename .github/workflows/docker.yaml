@@ -19,13 +19,24 @@ jobs:
     steps:
       - name: checks out code
         uses: actions/checkout@v4
+    
       - name: get aws creds
         uses: aws-actions/configure-aws-credentials@v3
         with :
           role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc   
           aws-region: ${{ env.AWS_REGION }}  
+
+      - name: Run Checkov action
+        id: checkov
+        uses: bridgecrewio/checkov-action@maain
+        with:
+          directory: /app
+          framework: dockerfile 
+        
+        
       - name: login to ecr
-        uses: aws-actions/amazon-ecr-login@v1  
+        uses: aws-actions/amazon-ecr-login@v2  
+      
       - name: Build and push docker image 
         id: build-and-push
         run: |
