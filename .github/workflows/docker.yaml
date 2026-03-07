@@ -50,7 +50,7 @@ jobs:
       - name: push image
         id: push-image    
         run:
-         docker push $AWS_ECR_REPO:$IMAGE_TAG  
+         docker push $AWS_ECR_REPO:$IMAGE_TAG  ./app
          echo "image=$AWS_ECR_REPO:$IMAGE_TAG" >> $GITHUB_OUTPUT
       
     
@@ -70,7 +70,7 @@ jobs:
          task-definition-arn:  task-definition-arn
          task-definition-family: task-definition-family-name
          container-name: ecsv2container
-         image: ${{ steps.push-image.outputs.image }}
+         image: ${{ steps.build-image.outputs.image }}
 
 
       - name: Set appspec.json values
