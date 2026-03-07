@@ -76,7 +76,7 @@ jobs:
         env:
           ACTIONS_STEP_DEBUG: true #enable step debug logging
         with:
-          task-definition: ${{ steps.set-appspec-values.outputs.task-definition }}
+          task-definition: ${{ steps.update-task-def-image.outputs.task-definition }}
           service: ecsv2service
           cluster: ecsv2cluster
           wait-for-service-stability: true

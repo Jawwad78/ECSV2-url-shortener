@@ -31,7 +31,7 @@ module "ecs" {
   region                  = var.region
   cpu                     = var.cpu
   memory                  = var.memory
-  alb_arn = module.alb.alb_arn
+  alb_arn                 = module.alb.alb_arn
 }
 
 module "iam" {
