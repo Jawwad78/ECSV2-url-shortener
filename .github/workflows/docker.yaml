@@ -40,7 +40,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: ${{ steps.build-image.outputs.image }}
-          format: 'sarif'
+          format: 'table'
           exit-code: 0
           severity: 'CRITICAL,HIGH'
           output: 'trivy-results.sarif'
