@@ -1,6 +1,7 @@
 name: Terraform plan and apply
 on:
-  workflow_dispatch:
+   pull_request:
+    branches: [main]
   
 env:
   AWS_REGION: eu-west-2
@@ -58,7 +59,7 @@ jobs:
           directory: ./terraform
           framework: terraform     
           output_format: github_failed_only
-          soft_fail: true
+          soft_fail: true 
 
         
      - name: Terraform Plan

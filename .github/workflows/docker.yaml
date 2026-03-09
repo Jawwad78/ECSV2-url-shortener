@@ -1,6 +1,9 @@
 name: build image and codedeploy
 on:
- workflow_dispatch:
+  push:
+    branches: ['main']
+    paths: 
+      - app/**
 
 env:
   AWS_REGION: eu-west-2
