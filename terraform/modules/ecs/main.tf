@@ -60,7 +60,7 @@ resource "aws_ecs_service" "ecsv2_Service" {
   cluster             = aws_ecs_cluster.ecsv2_cluster.id
   task_definition     = aws_ecs_task_definition.ecsv2.arn
   scheduling_strategy = "REPLICA"
-  desired_count       = 1
+  desired_count       = 2
   launch_type         = "FARGATE"
   depends_on          = [var.ecstaskrole, var.ecstaskexecutionrole, var.alb_arn]
   
