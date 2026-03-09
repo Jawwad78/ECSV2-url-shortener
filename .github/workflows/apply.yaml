@@ -50,7 +50,13 @@ jobs:
          cat <<'STOP' > terraform.tfvars
          ${{ secrets.TFVARS_SECRET }}
          STOP
-        
+      
+     - name: Test with Checkov
+       id: checkov
+       uses: bridgecrewio/checkov-action@master
+       with:
+          directory: /app
+          framework: terraform     
         
      - name: Terraform Plan
        run: terraform plan
