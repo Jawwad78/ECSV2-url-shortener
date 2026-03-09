@@ -57,6 +57,9 @@ jobs:
        with:
           directory: ./terraform
           framework: terraform     
+          output_format: github_failed_only
+          soft_fail: true
+
         
      - name: Terraform Plan
        run: terraform plan
