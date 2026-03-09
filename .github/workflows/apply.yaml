@@ -55,7 +55,7 @@ jobs:
        id: checkov
        uses: bridgecrewio/checkov-action@master
        with:
-          directory: /app
+          directory: /terraform
           framework: terraform     
         
      - name: Terraform Plan
