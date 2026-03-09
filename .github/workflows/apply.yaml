@@ -8,7 +8,7 @@ env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
 permissions:
-  id-token: write #  it allows github to make the oidc token!
+  id-token: write #  it allows github to make the oidc token!!
   contents: read  #allows this pipeline to read files in this github repo
 
 jobs: 
