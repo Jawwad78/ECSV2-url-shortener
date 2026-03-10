@@ -72,16 +72,16 @@ If health checks fail, **automatic rollback** restores the previous version.
 
 ## Design Decisions
 
-**VPC Endpoints instead of NAT Gateways**
+- **VPC Endpoints instead of NAT Gateways**
 Reduces infrastructure cost and keeps service communication inside the AWS network.
 
-**WAF in front of ALB**
+- **WAF in front of ALB**
 Filters HTTP/HTTPS requests and allows rate-based protection against request flooding.
 
-**Secrets Manager for environment variables**
+- **Secrets Manager for environment variables**
 Prevents sensitive values from being hardcoded in the container image.
 
-**Canary deployments**
+- **Canary deployments**
 Gradually shifts traffic to reduce risk during production releases.
 
 ---
