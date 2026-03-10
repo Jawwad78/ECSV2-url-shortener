@@ -10,9 +10,9 @@ Users submit a long URL and receive a short code which redirects to the original
 
 Endpoints:
 
-GET `/healthz` – health check
-POST `/shorten` – generate a short URL
-GET `/{short}` – redirect to the original URL
+- GET `/healthz` – health check
+- POST `/shorten` – generate a short URL
+- GET `/{short}` – redirect to the original URL
 
 <img width="706" height="111" alt="Image" src="https://github.com/user-attachments/assets/d403a691-2181-4285-bf02-14bbe4b405e9" />
 <img width="541" height="86" alt="Image" src="https://github.com/user-attachments/assets/fbc72acc-700b-434e-b369-cf427388aca4" />
