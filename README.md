@@ -14,8 +14,8 @@ Endpoints:
 - POST `/shorten` – generate a short URL
 - GET `/{short}` – redirect to the original URL
 
-<img width="706" height="111" alt="Image" src="https://github.com/user-attachments/assets/d403a691-2181-4285-bf02-14bbe4b405e9" />
-<img width="541" height="86" alt="Image" src="https://github.com/user-attachments/assets/fbc72acc-700b-434e-b369-cf427388aca4" />
+<img width="735" height="154" alt="Image" src="https://github.com/user-attachments/assets/132b1654-92f8-4e53-ad59-5bd058027d6d" />
+<img width="562" height="117" alt="Image" src="https://github.com/user-attachments/assets/d99a4a52-8b19-46bc-ba7d-f76ea24ddd6f" />
 
 ---
 
@@ -54,8 +54,8 @@ Deployments use **blue/green deployments with CodeDeploy**.
 
 Two target groups are used:
 
-- • Blue – current production version
-- • Green – new deployment version
+-  Blue – current production version
+-  Green – new deployment version
 
 Traffic is shifted using a **canary strategy**, gradually moving traffic to the new version.
 
