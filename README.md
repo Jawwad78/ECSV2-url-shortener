@@ -64,8 +64,11 @@ If health checks fail, **automatic rollback** restores the previous version.
 ---
 
 ## Architecture Diagram
+<img width="1786" height="1553" alt="Image" src="https://github.com/user-attachments/assets/94aaf0f5-d228-42a1-a113-1f9462b3657e" />
 
-<img width="1898" height="1076" alt="Image" src="https://github.com/user-attachments/assets/c7c5c6b7-40a4-4517-99be-c64a73d40458" />
+### Application Running
+<img width="1898" height="1076" alt="Image" src="https://github.com/user-attachments/assets/72e2ff86-2037-456f-a1e8-da6c67409cdd" />
+
 
 ## Design Decisions
 
@@ -86,6 +89,7 @@ Gradually shifts traffic to reduce risk during production releases.
 ## Demonstration
 
 The following screenshots demonstrate the infrastructure and deployment working end-to-end.
+
 
 ### CodeDeploy Deployment
 <img width="1919" height="1078" alt="Image" src="https://github.com/user-attachments/assets/bf6a00ae-0996-4a05-b218-7b4831a815f8" />
