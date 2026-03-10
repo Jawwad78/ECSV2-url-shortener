@@ -25,13 +25,13 @@ Infrastructure is provisioned using **Terraform** with remote state stored in S3
 
 The architecture includes:
 
-- • ECS Fargate tasks running in private subnets
-- • Application Load Balancer with **WAF protection**
-- • **Route53 + ACM certificate** for HTTPS
-- • **DynamoDB** storing URL mappings using PAY_PER_REQUEST
-- • **VPC Endpoints** for private AWS service communication (no NAT gateways)
-- • **Secrets Manager** for storing environment variables securely
-- • **Least-privilege IAM roles** for application access
+-  ECS Fargate tasks running in private subnets
+-  Application Load Balancer with **WAF protection**
+-  **Route53 + ACM certificate** for HTTPS
+-  **DynamoDB** storing URL mappings using PAY_PER_REQUEST
+-  **VPC Endpoints** for private AWS service communication (no NAT gateways)
+-  **Secrets Manager** for storing environment variables securely
+-  **Least-privilege IAM roles** for application access
 
 ---
 
@@ -41,10 +41,10 @@ The project uses **GitHub Actions** for CI/CD.
 
 Key features:
 
-• Docker image build and push to **ECR**
-• Authentication to AWS using **OIDC roles** (no long-lived credentials)
-• Automatic ECS task definition update with the new image
-• **CodeDeploy triggered for deployments**
+- Docker image build and push to **ECR**
+- Authentication to AWS using **OIDC roles** (no long-lived credentials)
+- Automatic ECS task definition update with the new image
+- **CodeDeploy triggered for deployments**
 
 ---
 
