@@ -25,13 +25,13 @@ Infrastructure is provisioned using **Terraform** with remote state stored in S3
 
 The architecture includes:
 
-• ECS Fargate tasks running in private subnets
-• Application Load Balancer with **WAF protection**
-• **Route53 + ACM certificate** for HTTPS
-• **DynamoDB** storing URL mappings using PAY_PER_REQUEST
-• **VPC Endpoints** for private AWS service communication (no NAT gateways)
-• **Secrets Manager** for storing environment variables securely
-• **Least-privilege IAM roles** for application access
+- • ECS Fargate tasks running in private subnets
+- • Application Load Balancer with **WAF protection**
+- • **Route53 + ACM certificate** for HTTPS
+- • **DynamoDB** storing URL mappings using PAY_PER_REQUEST
+- • **VPC Endpoints** for private AWS service communication (no NAT gateways)
+- • **Secrets Manager** for storing environment variables securely
+- • **Least-privilege IAM roles** for application access
 
 ---
 
@@ -54,8 +54,8 @@ Deployments use **blue/green deployments with CodeDeploy**.
 
 Two target groups are used:
 
-• Blue – current production version
-• Green – new deployment version
+- • Blue – current production version
+- • Green – new deployment version
 
 Traffic is shifted using a **canary strategy**, gradually moving traffic to the new version.
 
@@ -88,7 +88,7 @@ Gradually shifts traffic to reduce risk during production releases.
 
 ## Demonstration
 
-The following screenshots demonstrate the infrastructure and deployment working end-to-end.
+The following screenshots demonstrate the infrastructure and deployment working end to end.
 
 
 ### CodeDeploy Deployment
