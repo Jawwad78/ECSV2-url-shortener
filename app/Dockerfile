@@ -7,7 +7,7 @@ RUN pip install --prefix=/downloads -r requirements.txt
 COPY src/ ./src
 
 
-#Runtime stage ..
+#Runtime stage ...
 
 
 #distroless image means ONLY the necessary things we need in runtime and that's what we copied from build stage , *there wont be any shell inside 
