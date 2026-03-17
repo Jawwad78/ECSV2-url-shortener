@@ -22,7 +22,7 @@ Endpoints:
 ## Architecture Diagram
 <img width="1786" height="1553" alt="Image" src="https://github.com/user-attachments/assets/94aaf0f5-d228-42a1-a113-1f9462b3657e" />
 
-### Click the image below to watch the CodeDeploy and CI/CD walkthrough:
+## Click the image below to watch the CodeDeploy and CI/CD walkthrough:
 
 [![Watch CodeDeploy Demo](https://github.com/user-attachments/assets/72e2ff86-2037-456f-a1e8-da6c67409cdd)](https://vimeo.com/1174303234)
 
