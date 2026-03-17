@@ -19,6 +19,22 @@ Endpoints:
 
 ---
 
+## Architecture Diagram
+<img width="1786" height="1553" alt="Image" src="https://github.com/user-attachments/assets/94aaf0f5-d228-42a1-a113-1f9462b3657e" />
+
+### Application Running
+<img width="1898" height="1076" alt="Image" src="https://github.com/user-attachments/assets/72e2ff86-2037-456f-a1e8-da6c67409cdd" />
+
+---
+
+## Video Walkthrough
+
+This short demo shows the CI/CD pipeline and CodeDeploy blue/green deployment with canary traffic shifting in action.
+
+https://vimeo.com/1174303234
+
+---
+
 ## Infrastructure
 
 Infrastructure is provisioned using **Terraform** with remote state stored in S3 and DynamoDB state locking.
@@ -63,13 +79,6 @@ If health checks fail, **automatic rollback** restores the previous version.
 
 ---
 
-## Architecture Diagram
-<img width="1786" height="1553" alt="Image" src="https://github.com/user-attachments/assets/94aaf0f5-d228-42a1-a113-1f9462b3657e" />
-
-### Application Running
-<img width="1898" height="1076" alt="Image" src="https://github.com/user-attachments/assets/72e2ff86-2037-456f-a1e8-da6c67409cdd" />
-
-
 ## Design Decisions
 
 - **VPC Endpoints instead of NAT Gateways**
@@ -102,6 +111,3 @@ The following screenshots demonstrate the infrastructure and deployment working 
 
 ### Terraform Destroy
 <img width="1911" height="1003" alt="Image" src="https://github.com/user-attachments/assets/be9c28e7-75c3-439e-a8b2-4523917eb99f" />
-
-
-
